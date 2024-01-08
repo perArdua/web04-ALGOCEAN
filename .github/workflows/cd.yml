@@ -20,8 +20,11 @@ jobs:
         echo "${{ secrets.ENV }}" > .env
       shell: bash
 
-    - name: debug
+    - name: debug1
       working-directory: ./BE
+      run: ls
+
+    - name: debug2
       run: ls
       
     - name: Build Docker image

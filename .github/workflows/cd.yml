@@ -22,10 +22,10 @@ jobs:
 
     - name: debug1
       working-directory: ./BE
-      run: ls
+      run: ls -a
 
     - name: debug2
-      run: ls
+      run: ls -a
       
     - name: Build Docker image
       working-directory: ./BE

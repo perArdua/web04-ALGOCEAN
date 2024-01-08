@@ -20,11 +20,10 @@ jobs:
       with:
         node-version: 20
 
-    - name: Change to BE Directory
-      run: cd BE
-
-    - name: Install Dependencies
-      run: npm install
+    - name: Change to BE Directory and Install Dependencies
+      run: |
+        cd BE
+        npm install
 
     - name: Build Docker Image
       run: |

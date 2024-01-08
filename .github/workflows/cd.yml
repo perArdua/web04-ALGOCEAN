@@ -15,9 +15,9 @@ jobs:
 
     - name: Make ENV
       run: |
-        cd ./BE
         touch .env
         echo "${{ secrets.ENV }}" > .env
+        ls
       shell: bash
       working-directory: ./BE
 

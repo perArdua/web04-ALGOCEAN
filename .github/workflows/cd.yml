@@ -19,6 +19,7 @@ jobs:
         touch .env
         echo "${{ secrets.ENV }}" > .env
       shell: bash
+      working-directory: ./BE
 
     - name: Build Docker image
       working-directory: ./BE

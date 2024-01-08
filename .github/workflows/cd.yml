@@ -15,14 +15,14 @@ jobs:
 
     - name: Build Docker image
       working-directory: ./BE
-      run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/was .
+      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/was .
 
     - name: Login to Docker Hub
       uses: docker/login-action@v2
       with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Push Docker image
       working-directory: BE
-      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/was
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/was

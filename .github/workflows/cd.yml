@@ -22,7 +22,9 @@ jobs:
 
     - name: debug1
       working-directory: ./BE
-      run: ls -a
+      run: |
+        ls -a
+        cat .env | head -n 1
 
     - name: debug2
       run: ls -a

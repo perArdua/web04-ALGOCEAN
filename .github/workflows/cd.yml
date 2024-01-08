@@ -13,8 +13,12 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: debug
-      run: echo ${{ secrets.DOCKER_USERNAME }}
+    - name: Make ENV
+      run: |
+        cd ./BE
+        touch .env
+        echo "${{ secrets.ENV }}" > .env
+      shell: bash
 
     - name: Build Docker image
       working-directory: ./BE

@@ -14,13 +14,16 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Make ENV
+      working-directory: ./BE
       run: |
         touch .env
         echo "${{ secrets.ENV }}" > .env
-        ls
       shell: bash
-      working-directory: ./BE
 
+    - name: debug
+      working-directory: ./BE
+      run: ls
+      
     - name: Build Docker image
       working-directory: ./BE
       run: docker build -t ${{ secrets.DOCKER_USERNAME }}/was .

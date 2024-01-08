@@ -31,7 +31,7 @@ jobs:
       
     - name: Build Docker image
       working-directory: ./BE
-      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/was .
+      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/was -f dev.dockerfile .
 
     - name: Login to Docker Hub
       uses: docker/login-action@v2

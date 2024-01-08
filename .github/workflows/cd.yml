@@ -2,8 +2,8 @@ name: Docker Build and Push
 
 on:
   push:
-    paths:
-      - 'BE/**'
+    branches:
+      - dev
 
 jobs:
   build:
@@ -22,7 +22,7 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
-    # test
+
     - name: Push Docker image
       working-directory: BE
       run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/was

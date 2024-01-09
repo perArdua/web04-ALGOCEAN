@@ -17,13 +17,16 @@ COPY . .
 RUN npm run build
 
 # Use Nginx as the base image for the production stage
-FROM nginx:alpine
+FROM nginx:1.25
 
 # Remove the default Nginx configuration file
 RUN rm /etc/nginx/conf.d/default.conf
 
+# Set the working directory to /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html
+
 # Copy the built React application from the builder stage to Nginx's web root
-COPY --from=builder /app/. /usr/share/nginx/html
+COPY --from=builder /app/dist .
 
 # Copy the custom Nginx configuration
 COPY nginx.conf /etc/nginx/conf.d
